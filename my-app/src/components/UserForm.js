@@ -28,9 +28,9 @@ const UserForm = ({ values, errors, touched, status }) => {
 
                 <Field component="select" className="role-select" name="role">
                     <option>Please Choose an Option</option>
-                    <option value="student">Student</option>
-                    <option value="team-lead">Team Lead</option>
-                    <option value="section-lead">Section Lead</option>
+                    <option value="Student">Student</option>
+                    <option value="Team Lead">Team Lead</option>
+                    <option value="Section Lead">Section Lead</option>
                 </Field>
 
                 <label className="checkbox-container">
@@ -47,6 +47,7 @@ const UserForm = ({ values, errors, touched, status }) => {
                     <li>Name: {user.name}</li>
                     <li>Email: {user.email}</li>
                     <li>Password: {user.password}</li>
+                    <li>Role: {user.role}</li>
                 </ul>
             ))}
         </div>
