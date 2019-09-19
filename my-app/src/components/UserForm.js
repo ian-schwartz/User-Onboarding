@@ -7,10 +7,8 @@ import axios from 'axios';
 const UserForm = ({ values, errors, touched, status }) => {
     const [users, setUsers] = useState([])
     useEffect(() => {
-        if (status) {
-            setUsers([...users, status])
-        }
-    }, [status])
+        status && setUsers([...users, status]);
+    }, [status]);
 
     return (
         <div className="App">
@@ -28,13 +26,20 @@ const UserForm = ({ values, errors, touched, status }) => {
 
                 {touched.password && errors.password &&(<p>{errors.password}</p>)}
 
+                <Field component="select" className="role-select" name="role">
+                    <option>Please Choose an Option</option>
+                    <option value="student">Student</option>
+                    <option value="team-lead">Team Lead</option>
+                    <option value="section-lead">Section Lead</option>
+                </Field>
+
                 <label className="checkbox-container">
                     Terms of Service
                 <Field type="checkbox" name="terms" checked={values.terms}/>
                 <span className="checkmark" />
                 </label>
 
-                <Button color="info">Submit</Button>{' '}
+                <Button color="info" className="react-button">Submit</Button>{' '}
 
             </Form>
             {users.map(user => (
